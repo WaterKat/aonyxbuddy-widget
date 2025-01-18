@@ -1,0 +1,37 @@
+{
+  "name": "@aonyxbuddy/streamelements-widget",
+  "version": "1.0.0",
+  "description": "an aonyxbuddy widget for streamelements",
+  "main": "dist/app.js",
+  "type": "module",
+  "scripts": {
+    "build": "npm run build:rollup && npm run build:fields && npm run build:packup",
+    "build:rollup": "rollup -c",
+    "build:fields": "tsx ./generate-fields.ts",
+    "build:packup": "tsx ./pack-files.cts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/WaterKat/aonyxbuddy-widget.git"
+  },
+  "keywords": [
+    "streamelements",
+    "widget",
+    "typescript",
+    "javascript"
+  ],
+  "author": "WaterKat",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WaterKat/aonyxbuddy-widget/issues"
+  },
+  "homepage": "https://github.com/WaterKat/aonyxbuddy-widget#readme",
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^12.1.2",
+    "@types/node": "^22.10.7",
+    "tslib": "^2.8.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
+  }
+}
