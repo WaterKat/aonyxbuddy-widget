@@ -97,11 +97,25 @@ export type Field = {
     | FieldWidgetName
     | FieldWidgetDuration;
 };
+
+type GenericFieldData<T extends Field, K extends keyof T> = {
+  [key in K]: T[key] extends { value: infer P } ? P : never;
+};
+
+type AssertIsField<T extends Field> = T;
 //#endregion
 
-export const configuration: Field = {
+const rawConfiguration = {
   widgetName: {
     type: "hidden",
     value: "AonyxBuddy",
   },
-};
+} as const;
+
+export const configuration: AssertIsField<typeof rawConfiguration> =
+  rawConfiguration;
+
+export type FieldData = GenericFieldData<
+  typeof configuration,
+  keyof typeof configuration
+>;
