@@ -6,10 +6,10 @@ import { join } from "node:path";
 const outDir = "out";
 const outFile = "fields.json";
 
-const fullOutDir = join(import.meta.url, outDir);
+const fullOutDir = join(import.meta.dirname, outDir);
 if (!existsSync(fullOutDir)) {
-  mkdirSync(outDir);
+  mkdirSync(fullOutDir);
 }
 
-const fullOutPath = join(outDir, outFile);
+const fullOutPath = join(fullOutDir, outFile);
 writeFileSync(fullOutPath, JSON.stringify(configuration, null, 2));

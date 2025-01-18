@@ -8,7 +8,7 @@
     "build": "npm run build:rollup && npm run build:fields && npm run build:packup",
     "build:rollup": "rollup -c",
     "build:fields": "tsx ./generate-fields.ts",
-    "build:packup": "tsx ./pack-files.cts",
+    "build:packup": "tsx ./pack-files.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

@@ -10,13 +10,13 @@ const files = {
 
 const outDir = "dist";
 
-const dir = join(__dirname, outDir);
-if (!existsSync(dir)) {
-  mkdirSync(dir);
+const fullRootDir = join(import.meta.dirname);
+const fullOutDir = join(fullRootDir, outDir);
+if (!existsSync(fullOutDir)) {
+  mkdirSync(fullOutDir);
 }
 
 for (const key of Object.keys(files)) {
-  const file = join(__dirname, files[key]);
-  if (existsSync(file))
-    copyFileSync(file, join(__dirname, outDir, `${key}.txt`));
+  const file = join(fullRootDir, files[key]);
+  if (existsSync(file)) copyFileSync(file, join(fullOutDir, `${key}.txt`));
 }
