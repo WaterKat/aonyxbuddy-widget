@@ -1,1 +1,2 @@
-# aonyxbuddy-widget
+# AonyxBuddy Widget
+AonyxBuddy Widget is a pet type widget for streams using the streamelements overlay system. It allows the user to have an animated character that responds to stream events like follows, subscriptions, and raids. 
