@@ -1,6 +1,8 @@
 import { type OnWidgetLoadData } from "./streamelements.js";
 import { SpriteRenderer } from "./renderer.js";
-import { AudioPlayer, GetSETTSURL } from "./audio.js";
+import { AudioPlayer } from "./audio.js";
+import { GetStreamElementsTTSUrl } from "./streamelements.js";
+import { GetTextResponse, ProcessStreamElementsEvent } from "./events.js";
 
 function main(options: OnWidgetLoadData) {
   //! allow access to the options globally

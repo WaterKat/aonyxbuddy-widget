@@ -1,6 +1,6 @@
 import { existsSync, mkdirSync, writeFileSync } from "node:fs";
 
-import { configuration } from "./src/fields.js";
+import { configuration } from "./src/streamelements.js";
 import { join } from "node:path";
 
 const outDir = "out";
