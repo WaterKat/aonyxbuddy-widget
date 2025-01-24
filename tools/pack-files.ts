@@ -10,7 +10,7 @@ const files = {
 
 const outDir = "dist";
 
-const fullRootDir = join(import.meta.dirname);
+const fullRootDir = process.cwd();
 const fullOutDir = join(fullRootDir, outDir);
 if (!existsSync(fullOutDir)) {
   mkdirSync(fullOutDir);

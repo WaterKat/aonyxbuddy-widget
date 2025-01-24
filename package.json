@@ -7,8 +7,9 @@
   "scripts": {
     "build": "npm run build:rollup && npm run build:fields && npm run build:packup",
     "build:rollup": "rollup -c",
-    "build:fields": "tsx ./generate-fields.ts",
-    "build:packup": "tsx ./pack-files.ts",
+    "build:fields": "tsx ./tools/generate-fields.ts",
+    "build:packup": "tsx ./tools/pack-files.ts",
+    "dev": "npm run build && tsx ./tools/serve.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -31,7 +32,9 @@
     "@rollup/plugin-commonjs": "^28.0.2",
     "@rollup/plugin-node-resolve": "^16.0.0",
     "@rollup/plugin-typescript": "^12.1.2",
+    "@types/express": "^5.0.0",
     "@types/node": "^22.10.7",
+    "express": "^4.21.2",
     "tslib": "^2.8.1",
     "tsx": "^4.19.2",
     "typescript": "^5.7.3"
