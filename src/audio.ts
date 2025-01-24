@@ -12,6 +12,7 @@ export class AudioPlayer {
   private nodes: AudioNode[] = [];
 
   private maxAmplitude: number = 0;
+  private isPlaying: boolean = false;
 
   constructor(options?: AudioPlayerOptions) {
     this.options = {
@@ -60,19 +61,26 @@ export class AudioPlayer {
   }
 
   play(single: boolean = false) {
-    const playPromise = this.WaitForAudioContext().then(() =>
-      this.nodes[0]?.play()
-    );
+    if (this.isPlaying) return Promise.reject("Already playing audio");
+
+    const playPromise = this.WaitForAudioContext().then(() => {
+      this.isPlaying = true;
+      return this.nodes[0]?.play();
+    });
 
     playPromise
       ?.then(() => {
         this.nodes.shift();
         if (single) return;
+        if (this.nodes.length === 0) return;
         setTimeout(() => this.play(), this.options.waitTime);
       })
       .catch(() => {
         setTimeout(() => this.play(), this.options.retryTime);
         console.error("Failed to play audio");
+      })
+      .finally(() => {
+        this.isPlaying = false;
       });
 
     return playPromise ?? Promise.reject("No audio node");
