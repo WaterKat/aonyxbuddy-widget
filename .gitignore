@@ -130,3 +130,7 @@ dist
 .pnp.*
 
 # end of https://github.com/github/gitignore/Node.gitignore
+
+# start of custom gitignore for aonyxbuddy
+.env
+.env.*
