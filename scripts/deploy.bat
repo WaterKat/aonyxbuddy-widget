@@ -1,4 +1,4 @@
-@echo off
+@echo on
 set ARCHIVE_PATH=project.tar.gz
 set ENV_PATH=.env.development
 set SERVICE_NAME=AonyxBuddyWidget
@@ -24,7 +24,7 @@ ssh %SSH_USER%@%SSH_HOST% "cd %REMOTE_PROJECT_DIR%; tar -xzf %ARCHIVE_PATH% -C .
 ssh %SSH_USER%@%SSH_HOST% "cd %REMOTE_PROJECT_DIR%; dos2unix ./**/*.* || echo 'dos2unix may not be installed or not working properly'"
 
 echo Updating and starting service...
-ssh %SSH_USER%@%SSH_HOST% "cp %REMOTE_PROJECT_DIR%/scripts/Template.service /etc/systemd/system/%SERVICE_NAME%.service; sed -i 's|^%PROJECT_NAME^%|%SERVICE_NAME%|g' /etc/systemd/system/%SERVICE_NAME%.service; sed -i 's|^%PROJECT_DIR^%|%REMOTE_PROJECT_DIR%|g' /etc/systemd/system/%SERVICE_NAME%.service; "
+ssh %SSH_USER%@%SSH_HOST% "cp %REMOTE_PROJECT_DIR%/scripts/Template.service /etc/systemd/system/%SERVICE_NAME%.service; sed -i 's|%%PROJECT_NAME%%|%SERVICE_NAME%|g' /etc/systemd/system/%SERVICE_NAME%.service; sed -i 's|%%PROJECT_DIR%%|%REMOTE_PROJECT_DIR%|g' /etc/systemd/system/%SERVICE_NAME%.service; "
 ssh %SSH_USER%@%SSH_HOST% "systemctl enable %SERVICE_NAME%.service || echo 'Enabling service failed...'"
 ssh %SSH_USER%@%SSH_HOST% "systemctl start %SERVICE_NAME%.service || echo 'Starting service failed...'"
 
