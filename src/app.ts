@@ -93,3 +93,5 @@ window.addEventListener("onWidgetLoad", (raw: unknown) => {
   const data = (raw as any).detail as OnWidgetLoadData;
   main(data);
 });
+
+console.log("AonyxBuddy Overlay Loaded");
