@@ -581,10 +581,12 @@ const rawConfiguration = {
   baseSprite: {
     type: "image-input",
     label: "Base Sprite",
+    value: "https://aonyxlimited.com/resources/aonyxbuddy/sprites/chuck/base.gif",
   },
   talkingSprite: {
     type: "image-input",
     label: "Talking Sprite",
+    value: "https://aonyxlimited.com/resources/aonyxbuddy/sprites/chuck/talking.gif",
   },
 } as const;
 
