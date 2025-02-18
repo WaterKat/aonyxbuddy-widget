@@ -1,7 +1,12 @@
 @echo on
+REM You will need the following variables in your .env.development
+REM SERVICE_NAME=
+REM SSH_USER=
+REM SSH_HOST=
+REM REMOTE_PROJECT_DIR=
+
 set ARCHIVE_PATH=project.tar.gz
 set ENV_PATH=.env.development
-set SERVICE_NAME=AonyxBuddyWidget
 
 echo Deploying using %ENV_PATH% to debian based machine. Please ensure node is installed in your target machine.
 
