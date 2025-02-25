@@ -1,2 +1,3 @@
 #!/bin/bash
-echo hello world!
+npm i
+npm run dev
